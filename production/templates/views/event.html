@@ -1,0 +1,28 @@
+
+{% extends "views/layout.html" %}
+
+{% block content %}
+    <h1>Product Details</h1>
+    <table class="table table-bordered table-stripped">
+        <thead>
+            <tr>
+                {% comment %} <th>ID</th> {% endcomment %}
+                <th>ID</th>
+                <th>Alcohold by Volume</th>
+                <th>Internation Bitterness Units</th>
+                <th>Standard Reference Measurement</th>
+            </tr>
+        </thead>
+
+        <tbody> 
+            {% for detail in the_product %}
+                <tr>
+                    {% comment %} <td>{{product.detail_id}}</td> {% endcomment %}
+                    <td>{{detail.abv}}</td>
+                    <td>{{detail.ibu}}</td>
+                    <td>${{detail.srm}}</td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+{% endblock  %}

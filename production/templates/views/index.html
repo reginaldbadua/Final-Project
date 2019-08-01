@@ -1,0 +1,46 @@
+{% extends "views/layout.html" %}
+
+{% block content %}
+
+    <h1> Beer Inventory </h1>
+
+    {% comment %} <ul>
+        {% for product in inventory %}
+            <li>{{ product.product_name}}</li>
+            <button>Button</button>
+        {% endfor%}
+    </ul> {% endcomment %}
+
+    {% comment %} 
+        detail_id
+        product_name
+        on_hand_qty
+        price 
+    {% endcomment %}
+
+    <table class="table table-bordered table-stripped">
+        <thead>
+            <tr>
+                {% comment %} <th>ID</th> {% endcomment %}
+                <th>Product Name</th>
+                <th>On Hand Quantity</th>
+                <th>Price</th>
+                <th>Product Details</th>
+            </tr>
+        </thead>
+
+        <tbody> 
+            {% for product in inventory %}
+                <tr>
+                    {% comment %} <td>{{product.detail_id}}</td> {% endcomment %}
+                    <td>{{product.product_name}}</td>
+                    <td>{{product.on_hand_qty}}</td>
+                    <td>${{product.price}}</td>
+                    <td><a href="/detail/{{product.id}}/"> {{ product.product_name}} Details </a></td>
+                </tr>
+            {% endfor%}
+        </tbody>
+    </table>
+
+{% endblock %}
+
